@@ -1,64 +1,66 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
+// merge two sorted list (leetcode 21)  
+// Follow up -- Merge K sorted Linked List
 
 // Definition of a singly linked list node
 struct ListNode {
     int val;
     ListNode* next;
-    ListNode(int x) : val(x), next(nullptr) {}  //constructor
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
-
-// merge two sorted list (leetcode 21)
-ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
     // Dummy node to act as the start of the merged list
     ListNode* dummyNode = new ListNode(-1);
     ListNode* temp = dummyNode;  //temp is the tail of resulting LL
+
+    ListNode* l1 = list1;
+    ListNode* l2 = list2;
  
-    while (h1 != nullptr && h2 != nullptr) {
-        if (l1->val < l2->val) {
-            temp->next = h1;
-            temp = h1;
-            h1 = h1->next;
-        } else {
-            temp->next = h2;
-            temp = h2;
-            h2 = h2->next;
+    while(l1 && l2) {
+        if (l1->val <= l2->val) {
+            temp->next = l1;
+            temp = l1;
+            l1 = l1->next;
+        } 
+        else {
+            temp->next = l2;
+            temp = l2;
+            l2 = l2->next;
         }
     }
     // Append the remaining nodes from l1 or l2
-    if(h1) temp->next = h1;
-    else temp->next h2;
+    while(l1) {
+        temp->next = l1;
+        l1 = l1->next;
+        temp = temp->next;
+    }
+
+    while(l2) {
+        temp->next = l2;
+        l2 = l2->next;
+        temp = temp->next;
+    }
 
     return dummyNode->next;
 }
 
 //merge two sorted list using recursion
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 
-ListNode* mergeTwoLists(ListNode* h1, ListNode* h2) {
+ListNode* mergeTwoListsRec(ListNode* h1, ListNode* h2) {
     if(h1 == NULL || h2 == NULL){
         return h1 == NULL ? h2 : h1;
     }
     if(h1->val <= h2->val){
-        h1->next = mergeTwoLists(h1->next, h2);
+        h1->next = mergeTwoListsRec(h1->next, h2);
         return h1;
     }else{
-        h2->next = mergeTwoLists(h1, h2->next);
+        h2->next = mergeTwoListsRec(h1, h2->next);
         return h2;
     }
 }
-
-
 
 // Helper function to print a linked list
 void printList(ListNode* head) {
