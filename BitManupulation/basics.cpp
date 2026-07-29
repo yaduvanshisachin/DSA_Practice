@@ -1,18 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-
-
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
 
-    int t; cin >> t;
+    //powers of 2
+    cout << (10 << 1) << endl; // 10 * 2^1
+    cout << (10 << 2) << endl; // 10 * 2^2
+    cout << (10 << 3) << endl; // 10 * 2^3
+    cout << (10 << 4) << endl; // 10 * 2^4
+
+    //powers of 2
+    cout << (10 >> 1) << endl; // 10 * 2^-1
+    cout << (10 >> 2) << endl; // 10 * 2^-2
+    cout << (10 >> 3) << endl; // 10 * 2^-3
+    cout << (10 >> 4) << endl; // 10 * 2^-4
     
-    //if right-most or LSB is 1 ==> odd
+
+    /* check even-odd -- if right-most or LSB is 1 ==> odd */
     // (t & 1) ? cout << "odd\n" : cout << "even\n";
     
     
@@ -20,8 +24,8 @@ int main() {
     // (t & (t-1)) ? cout << "No\n" : cout << "Yes\n";
     
     //check if kth bit is set or not
-    int k = 5;
-    (t & (t << k) != 0) ? cout << "Yes Set\n" : cout << "Not Set\n";
+    // int k = 5;
+    // (t & (t << k) != 0) ? cout << "Yes Set\n" : cout << "Not Set\n";
 
     return 0;
 }

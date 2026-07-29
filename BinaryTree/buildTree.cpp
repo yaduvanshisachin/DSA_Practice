@@ -19,7 +19,7 @@ class Solution {
 public:
     unordered_map<int,int> mp;
 
-    TreeNode* build(vector<int>& preorder, vector<int>& inorder, int &preIdx, int left, int right){
+    TreeNode* build(vector<int>& preorder, int &preIdx, int left, int right){
         if(left > right){
             return NULL;
         }
@@ -29,8 +29,8 @@ public:
 
         int inIdx = mp[rootVal];
 
-        root->left = build(preorder, inorder, preIdx, left, inIdx-1);
-        root->right = build(preorder, inorder, preIdx, inIdx+1, right);
+        root->left = build(preorder, preIdx, left, inIdx-1);
+        root->right = build(preorder, preIdx, inIdx+1, right);
 
         return root;
     }
@@ -38,8 +38,9 @@ public:
         for(int i=0; i< inorder.size(); i++){
             mp[inorder[i]] = i;
         }
+        
         int preIdx = 0;
-        return build(preorder, inorder, preIdx, 0, inorder.size()-1);
+        return build(preorder, preIdx, 0, inorder.size()-1);
     }
 };
 

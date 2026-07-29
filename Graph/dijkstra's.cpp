@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// using p = pair<int, int>;
 typedef pair<int, int> p; // {dist, node}
 
 void dijkstra(int V, unordered_map<int, vector<p>> &adj, int source) {

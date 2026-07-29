@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-//Kahn's algorithm
+//Kahn's algorithm   -- (DAG)
 
 bool topologicalSort(int n, vector<pair<int, int>> &edges, int v){
     unordered_map<int, list<int>> adj;
