@@ -49,7 +49,7 @@ public:
             dsu.unite(pair[0], pair[1]);
         }
 
-        //withing group each element maintains it's freq    element --> freq
+        //within group each element maintains it's freq    element --> freq
         unordered_map<int, unordered_map<int, int>> groups;
 
         //iterate on source
@@ -81,5 +81,5 @@ int main(){
 
     int ans = sol.minimumHammingDistance(source, target, allowed_swaps);
 
-    cout<< ans;
+    cout<< ans << endl;
 }

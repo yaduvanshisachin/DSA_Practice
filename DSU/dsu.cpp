@@ -3,12 +3,13 @@ using namespace std;
 
 class DisjointSet{
     vector<int> parent, size;
-
+public:
     DisjointSet(int n){
         parent.resize(n+1);
         size.resize(n+1, 1);
 
         for(int i=0; i<n; i++) parent[i] = i;
+        // iota(parent.begin(), parent.end(), 0);
     }
 
     int find(int x){

@@ -1,5 +1,5 @@
 class DisjointSet{
-    int[] parent, size;
+    private int[] parent, size;
 
     DisjointSet(int n){
         parent = new int[n+1];
