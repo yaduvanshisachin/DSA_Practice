@@ -19,9 +19,9 @@ void dijkstra(int V, unordered_map<int, vector<p>> &adj, int source) {
         // Skip if we already found a better path
         if (currDist > dist[node]) continue;
 
-        for (auto &edge : adj[node]) {
-            int v = edge.first;
-            int weight = edge.second;
+        for (auto &it : adj[node]) {
+            int v = it.first;
+            int weight = it.second;
 
             if (dist[node] + weight < dist[v]) {
                 dist[v] = dist[node] + weight;
