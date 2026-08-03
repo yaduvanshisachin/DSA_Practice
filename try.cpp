@@ -26,6 +26,7 @@ int main() {
     // cout << "Size of bool : " << sizeof(bool) <<" Bytes " << endl;
 
 
-    uint8_t x = 10;  // 0...255
-    std::cout << static_cast<int>(x) << endl;
+    // uint8_t x = 10;  // 0...255
+    // std::cout << static_cast<int>(x) << endl;
+    return 0;
 }

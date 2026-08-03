@@ -6,8 +6,8 @@ int main() {
     //powers of 2
     cout << (10 << 1) << endl; // 10 * 2^1
     cout << (10 << 2) << endl; // 10 * 2^2
-    cout << (10 << 3) << endl; // 10 * 2^3
-    cout << (10 << 4) << endl; // 10 * 2^4
+    cout << (1 << 3) << endl; // 1 * 2^3
+    cout << (1 << 4) << endl; // 1 * 2^4
 
     //powers of 2
     cout << (10 >> 1) << endl; // 10 * 2^-1
@@ -25,8 +25,16 @@ int main() {
     
     //check if kth bit is set or not
     // int k = 5;
-    // (t & (t << k) != 0) ? cout << "Yes Set\n" : cout << "Not Set\n";
+    // (t & (1 << k) != 0) ? cout << "Yes Set\n" : cout << "Not Set\n";
+    
+    //set kth bit
+    // t = t | (1 << k)
 
+    //clear kth bit
+    // t = t & ~(1 << k);
+
+    //flip kth bit
+    // t = t ^ (1 << k);
     return 0;
 }
 
