@@ -1,17 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-
-
 class NumArray {
 public:
     int n;
     vector<int> tree; //segment tree (storing Range sum)
     vector<int> A;
 
+    //range-sum SegmentTree
     void buildTree(int i, int l, int r) {
         if(l == r) {
             tree[i] = A[l];
