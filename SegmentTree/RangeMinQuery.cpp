@@ -13,7 +13,7 @@ private:
     //Range-Min segmentTree
     void buidTree(int i, int l, int r, vector<int> &arr) {
         if(l == r) {
-            tree[l] = arr[i];
+            tree[i] = arr[l];
             return;
         }
 
@@ -27,9 +27,9 @@ private:
 
     int query(int start, int end, int i, int l, int r) {
         if(l > end || r < start)
-            return 0;
+            return INT_MAX;
 
-        if(l <= start && r >= end)
+        if(l >= start && r <= end)
             return tree[i];
 
         int mid = l + (r - l) /2;
