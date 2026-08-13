@@ -51,3 +51,4 @@ int main() {
 }
 
 //to check leading zeros
+//take prev = 10 (some not possible value)
