@@ -6,7 +6,6 @@
 #include <queue>
 using namespace std;
 
-
 //Kahn's algorithm
 vector<int> topologicalSort(vector<vector<int>> &edges, int V){
     unordered_map<int, vector<int>> adj;
