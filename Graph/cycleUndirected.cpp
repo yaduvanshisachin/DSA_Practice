@@ -1,18 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//Cycle Detection in Undirected Graph - Parent Tracking
 class Solution {
   public:
   
-    bool isCycleDSF(unordered_map<int, vector<int>> &adj, int u, vector<bool> &visited, int parent){
+    bool isCycleDSF(unordered_map<int, vector<int>> &adj, int u, vector<bool> &vis, int parent){
         
-        visited[u] = true;
+        vis[u] = true;
         
         for(int &v : adj[u]){
             if(v == parent) continue;
             
-            if(visited[v] == true){
+            if(vis[v] == true){
                 return true;
             }
             
-            if(isCycleDSF(adj, v, visited, u))
+            if(isCycleDSF(adj, v, vis, u))
                 return true;
         }
         
@@ -31,10 +35,10 @@ class Solution {
             adj[v].push_back(u);
         }
         
-        vector<bool> visited(V, false);
+        vector<bool> vis(V, false);
         
         for(int i=0; i<V; i++){
-            if(!visited[i] && isCycleDSF(adj, i, visited, -1)){
+            if(!vis[i] && isCycleDSF(adj, i, vis, -1)){
                 return true;
             }
         }
@@ -46,28 +50,23 @@ class Solution {
 
 
 
-
-
-
-
 // BSF methode  
 
-
-class Solution {
+class Solution1 {
   public:
   
-    bool isCycleBFS(unordered_map<int, vector<int>> &adj, int u, vector<bool> &visited) {
+    bool isCycleBFS(unordered_map<int, vector<int>> &adj, int u, vector<bool> &vis) {
         queue<pair<int, int>> q;
         q.push({u, -1});
-        visited[u] = true;
+        vis[u] = true;
 
         while (!q.empty()) {
             auto [node, parent] = q.front();
             q.pop();
 
             for (int &neighbor : adj[node]) {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
+                if (!vis[neighbor]) {
+                    vis[neighbor] = true;
                     q.push({neighbor, node});
                 } else if (neighbor != parent) {
                     return true;  // Cycle detected
@@ -81,20 +80,18 @@ class Solution {
     bool isCyclic(int V, vector<vector<int>> &edges) {
         unordered_map<int, vector<int>> adj;
 
-        // Build adjacency list
-        for (auto &edge : edges) {
-            int u = edge[0];
-            int v = edge[1];
+        for (auto &e : edges) {
+            int u = e[0], v = e[1];
             adj[u].push_back(v);
             adj[v].push_back(u);  // Undirected graph
         }
 
-        vector<bool> visited(V, false);
+        vector<bool> vis(V, false);
 
         // Handle disconnected components
         for (int i = 0; i < V; i++) {
-            if (!visited[i]) {
-                if (isCycleBFS(adj, i, visited)) {
+            if (!vis[i]) {
+                if (isCycleBFS(adj, i, vis)) {
                     return true;
                 }
             }

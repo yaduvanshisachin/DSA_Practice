@@ -1,4 +1,4 @@
-//Topological sort implementation using BFS approach is also known as kanh's algo
+//Topological sort implementation using BFS (also called - Kahn's algorithm)
 
 #include <iostream>
 #include <vector>
