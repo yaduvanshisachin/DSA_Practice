@@ -57,17 +57,15 @@ public:
 
 
 // for CP , fast writing
-class DisjointSet {
-public:
+class DSU {
     vector<int> parent, size;
-
-    DisjointSet(int n) {
+public:
+    DSU(int n) {
         parent.resize(n + 1);
         size.resize(n + 1, 1);
 
-        for (int i = 0; i <= n; i++) {
-            parent[i] = i;
-        }
+        // for (int i = 0; i <= n; i++) parent[i] = i;
+        iota(parent.begin(), parent.end(), 0);
     }
 
     int find(int x) {
@@ -81,13 +79,11 @@ public:
 
         if (pu == pv) return;
 
-        // union by size
-        if (size[pu] < size[pv]) {
-            parent[pu] = pv;
-            size[pv] += size[pu];
-        } else {
-            parent[pv] = pu;
-            size[pu] += size[pv];
-        }
+        if (size[pu] < size[pv])
+            swap(pu, pv);
+        
+        parent[pv] = pu;
+        size[pu] += size[pv];
+        
     }
 };

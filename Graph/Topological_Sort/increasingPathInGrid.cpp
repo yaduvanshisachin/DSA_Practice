@@ -1,22 +1,18 @@
-// #include<bits/stdc++.h>
-#include<iostream>
-#include<vector>
-#include<queue>
-
+#include<bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
     int longestIncreasingPath(vector<vector<int>>& grid) {
-        int m = grid.size();
-        int n = grid[0].size();
+        int m = grid.size(), n = grid[0].size();
 
         vector<vector<int>> indegree(m, vector<int>(n, 0));
-        vector<vector<int>> directions = {{0,1}, {0,-1}, {1, 0}, {-1,0}};
+        vector<vector<int>> dirs = {{0,1}, {0,-1}, {1, 0}, {-1,0}};
 
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 
-                for(auto &dir : directions){
+                for(auto &dir : dirs){
                     int nr = i + dir[0];
                     int nc = j + dir[1];
 
@@ -46,7 +42,7 @@ public:
                 auto [r, c] = q.front();
                 q.pop();
 
-                for(auto &dir : directions){
+                for(auto &dir : dirs){
                     int nr = r + dir[0];
                     int nc = c + dir[1];
 
@@ -64,10 +60,3 @@ public:
         return path;
     }
 };
-
-int mai(){
-    
-    return longestIncreasingPath();
-
-    return 0;
-}

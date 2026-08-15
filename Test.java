@@ -5,7 +5,6 @@ public class Test {
 
         String[] strs = {"eat","tea","tan","ate","nat","bat"};
         
-
         for(List<String> it : Solution.groupAnagrams(strs)) {
             
             System.out.print("[");

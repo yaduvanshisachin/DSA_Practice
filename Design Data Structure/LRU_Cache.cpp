@@ -44,7 +44,7 @@ public:
     }
 
     void put(int key, int val) {
-        //Case 1: Entry already exists in map
+        //Case 1: Entry already exists in map (update)
         if(mp.count(key)) {
             Node* node = mp[key];
             node->val = val;  //shallow copy hai toh,, map me automatically updated
