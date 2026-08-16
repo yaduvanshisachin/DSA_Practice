@@ -52,3 +52,4 @@ int main() {
 }
 
 //we need to check the leading zeros
+// constrained 1 <= n <= 10^9  ----> s.length() <= 10

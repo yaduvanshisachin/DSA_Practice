@@ -3,16 +3,30 @@ import java.util.*;
 public class Test {
     public static void main(String[] args) {
 
-        String[] strs = {"eat","tea","tan","ate","nat","bat"};
+        // String[] strs = {"eat","tea","tan","ate","nat","bat"};
         
-        for(List<String> it : Solution.groupAnagrams(strs)) {
+        // for(List<String> it : Solution.groupAnagrams(strs)) {
             
-            System.out.print("[");
-            for(var itt : it) {
-                System.out.print(itt + " ");
-            }
-            System.out.print("[ \n");
+        //     System.out.print("[");
+        //     for(var itt : it) {
+        //         System.out.print(itt + " ");
+        //     }
+        //     System.out.print("[ \n");
+        // }   
+        
+        // List<String> ll = new LinkedList<>();
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
+        for(int i = 1; i <= 10; i++) dq.offer(i);
+
+        Iterator<Integer> it = dq.iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next());
         }
+
+
+
+
     }
 }
 
