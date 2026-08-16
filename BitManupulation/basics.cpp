@@ -15,6 +15,7 @@ int main() {
     cout << (10 >> 3) << endl; // 10 * 2^-3
     cout << (10 >> 4) << endl; // 10 * 2^-4
     
+    cout << (1 << 10) << endl; // 2^10 = 1024
 
     /* check even-odd -- if right-most or LSB is 1 ==> odd */
     // (t & 1) ? cout << "odd\n" : cout << "even\n";

@@ -40,16 +40,16 @@ public:
         tree[i] = tree[2*i+1] + tree[2*i+2];
     }
 
-    int query(int start, int end, int i, int l, int r) {
-        if(l > end || r < start) return 0;
+    int query(int ql, int qr, int i, int l, int r) {
+        if(l > qr || r < ql) return 0;
 
-        if(l >= start && r <= end) {
+        if(l >= ql && r <= qr) {
             return tree[i];
         }
 
         int mid = l + (r - l)/2;
-        return query(start, end, 2*i+1, l, mid) + 
-                query(start, end, 2*i+2, mid+1, r);
+        return query(ql, qr, 2*i+1, l, mid) + 
+                query(ql, qr, 2*i+2, mid+1, r);
     }
 
     NumArray(vector<int>& arr) {
@@ -66,13 +66,3 @@ public:
         return query(left, right, 0, 0, n-1);
     }
 };
-
-
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-
-
-    return 0;
-}

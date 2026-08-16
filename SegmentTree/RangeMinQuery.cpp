@@ -2,8 +2,6 @@
 using namespace std;
 
 #define ll long long
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
 
 class SegmentTree {
 private:
@@ -25,17 +23,17 @@ private:
         tree[i] = min(tree[2*i + 1], tree[2*i + 2]);
     }
 
-    int query(int start, int end, int i, int l, int r) {
-        if(l > end || r < start)
+    int query(int i, int ql, int qr, int l, int r) {
+        if(l > qr || r < ql)
             return INT_MAX;
 
-        if(l >= start && r <= end)
+        if(l >= ql && r <= qr)
             return tree[i];
 
         int mid = l + (r - l) /2;
 
-        return min(query(start, end, 2*i+1, l, mid), 
-                    query(start, end, 2*i+2, mid+1, r) );
+        return min(query(2*i+1, ql, qr, l, mid), 
+                    query(2*i+2, ql, qr, mid+1, r) );
     }
 
 public:
@@ -46,8 +44,8 @@ public:
         buidTree(0, 0, n-1, arr);
     }
 
-    int query(int start, int end) {
-        return query(start, end, 0, 0, n-1);
+    int query(int ql, int qr) {
+        return query(0, ql, qr, 0, n-1);
     }
 };
 
@@ -58,10 +56,10 @@ class Solution {
         
         vector<int> result;
         for(auto &q : queries) {
-            int start = q[0]-1;
-            int end = q[1] - 1;
-
-            result.push_back(t.query(start, end));
+            int ql = q[0]-1;
+            int qr = q[1] - 1;
+            
+            result.push_back(t.query(ql, qr));
         }
 
         return result;
