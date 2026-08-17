@@ -3,6 +3,12 @@ using namespace std;
 
 //KMP builds longest prefix suffix (LPS) array 
 
+/*
+    It is similar to dp[]
+    lsp[j] = length of longest prefix suffix of string ending at j
+    
+ */
+
 vector<int> kmp(string s) {
     int n = s.size();
 
