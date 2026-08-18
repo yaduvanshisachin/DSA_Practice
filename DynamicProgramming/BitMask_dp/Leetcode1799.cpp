@@ -10,23 +10,25 @@ public:
         if(mask == (1 << n) - 1) return 0;
 
         if(dp[mask] != -1) return dp[mask];
-
-        //find first unused element
+        
+        int res = INT_MIN;  
+        
         for(int i = 0; i < n; i++) {
+            //find first unused element
             if(mask & (1 << i)) continue;
 
-            //find second unused element
             for(int j = i+1; j < n; j++) {
+                //find second unused element
                 if(mask & (1 << j)) continue;
 
                 int newMask = mask | (1 << i) | (1 << j);
                 int score = (op *__gcd(A[i], A[j])) + f(op+1, newMask);
 
-                dp[mask] = max(dp[mask], score);
+                res = max(res, score);
             }
         }
 
-        return dp[mask];
+        return dp[mask]  = res;
     }
 
     int maxScore(vector<int>& nums) {
@@ -39,7 +41,8 @@ public:
 
 int main() {
     Solution sol;
-    vector<int> a = {171651,546244,880754,412358};
+    // vector<int> a = {171651,546244,880754,412358};
+    vector<int> a = {3,4,6,8};
 
     cout << sol.maxScore(a) << '\n';
     return 0;
