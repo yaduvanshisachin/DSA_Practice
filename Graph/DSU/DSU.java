@@ -1,3 +1,5 @@
+package Graph.DSU;
+
 class DisjointSet{
     private int[] parent, size;
 
