@@ -5,7 +5,7 @@ class TrieNode {
     boolean isEnd = false; 
 }
 
-class Solution {
+class LC3043Solution {
     private TrieNode root = new TrieNode();
 
     private void insert(String s) {
@@ -50,7 +50,7 @@ class Solution {
 
 public class Leetcode3043 {
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        LC3043Solution sol = new LC3043Solution();
 
         int[] arr1 = {1, 10, 100}, arr2 = {1000};
         System.out.println(sol.longestCommonPrefix(arr1, arr2));

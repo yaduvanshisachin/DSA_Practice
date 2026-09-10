@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class Solution {
+class Solution1402 {
     int[] A;
     int[][] dp;
 
@@ -33,7 +33,7 @@ class Solution {
 
 public class Leetcode1402 {
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution1402 sol = new Solution1402();
 
         int[] satisfaction = {-1,-8,0,5,-9};
         System.out.println(sol.maxSatisfaction(satisfaction));

@@ -1,14 +1,6 @@
-/******************************************************************************
-
-                            Online Java Compiler.
-                Code, Compile, Run and Debug java program online.
-Write your code in this editor and press "Run" button to execute it.
-
-*******************************************************************************/
-
 import java.util.*;
 
-class Solution {
+class Solution2948 {
     public int[] lexicographicallySmallestArray(int[] nums, int limit) {
         int n = nums.length;
 
@@ -50,7 +42,7 @@ class Solution {
 
 public class Leetcode2948 {
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution2948 sol = new Solution2948();
 
         int[] nums = {1,7,28,19,10};
         int limit = 3;
@@ -59,5 +51,6 @@ public class Leetcode2948 {
         
         for(int x : ans)
             System.out.print(x + " ");
+        System.out.println();
     }
 }
