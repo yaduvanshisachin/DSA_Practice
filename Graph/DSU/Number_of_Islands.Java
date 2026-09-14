@@ -29,7 +29,7 @@ class DSU {
     }
 }
 
-class Solution {
+class Solution200 {
     public int numIslands(char[][] grid) {
         int m = grid.length, n = grid[0].length;
 

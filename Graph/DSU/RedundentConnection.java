@@ -1,3 +1,4 @@
+package Graph.DSU;
 import java.util.*;
 
 class Solution {

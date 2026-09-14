@@ -30,7 +30,7 @@ public class Test {
     }
 }
 
-class Solution {
+class Solution1 {
     public static List<List<String>> groupAnagrams(String[] strs) {
         
         Map<String, List<String>> mp = new HashMap<>();
